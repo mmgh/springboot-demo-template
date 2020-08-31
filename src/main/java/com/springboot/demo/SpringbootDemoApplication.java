@@ -29,6 +29,7 @@ import org.springframework.context.annotation.Bean;
 
 import com.springboot.demo.props.DemoProperties;
 
+//remove pom dependecy or autoconfiguration
 @SpringBootApplication(exclude = {
 		SecurityAutoConfiguration.class,
 		HibernateJpaAutoConfiguration.class,

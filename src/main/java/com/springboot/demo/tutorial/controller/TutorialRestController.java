@@ -5,12 +5,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.demo.props.DemoProperties;
 import com.springboot.demo.tutorial.dto.TutorialDto;
 
 @RestController
+@RequestMapping("/demo")
 public class TutorialRestController {
 
 	private static Logger logger = LoggerFactory.getLogger(TutorialRestController.class);
@@ -22,8 +24,12 @@ public class TutorialRestController {
 	DemoProperties demoProperties;
 	
 	
-	@GetMapping("/test")
-	public TutorialDto getTest() {
+	/**
+	 * Response Dto case
+	 * @return
+	 */
+	@GetMapping("/info")
+	public TutorialDto getInformation() {
 		logger.info("/test");
 		TutorialDto tDto = new TutorialDto();
 		tDto.setName("octo-cat");
@@ -34,6 +40,10 @@ public class TutorialRestController {
 	}
 	
 	
+	/**
+	 * Response String case
+	 * @return
+	 */
 	@GetMapping("/port")
 	public String getPort() {
 		return this.serverPort;
@@ -41,10 +51,10 @@ public class TutorialRestController {
 	
 	
 	/**
-	 * 
+	 * Response bound properties case
 	 * @return
 	 */
-	@GetMapping("/demo")
+	@GetMapping("/properties")
 	public DemoProperties getDemoProperties() {
 		return this.demoProperties;
 	}
