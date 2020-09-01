@@ -21,13 +21,11 @@ import org.springframework.boot.autoconfigure.transaction.jta.JtaAutoConfigurati
 import org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Bean;
-
-import com.springboot.demo.props.DemoProperties;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 //remove pom dependecy or autoconfiguration
 @SpringBootApplication(exclude = {
@@ -44,6 +42,7 @@ import com.springboot.demo.props.DemoProperties;
 		JtaAutoConfiguration.class,
 		ErrorMvcAutoConfiguration.class
 })
+@EnableAsync
 //public class SpringbootDemoApplication extends SpringBootServletInitializer{
 public class SpringbootDemoApplication extends SpringBootServletInitializer implements CommandLineRunner, ApplicationRunner{
 
