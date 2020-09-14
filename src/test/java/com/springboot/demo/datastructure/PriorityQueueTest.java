@@ -5,9 +5,15 @@ import java.time.LocalDateTime;
 import java.util.PriorityQueue;
 
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import com.springboot.demo.event.TutorialEventHandler;
 
 public class PriorityQueueTest {
 
+	private static Logger log = LoggerFactory.getLogger(PriorityQueueTest.class);
+	
 	@Test
 	public void priorityQueueTest() throws InterruptedException {
 
@@ -47,13 +53,12 @@ public class PriorityQueueTest {
 		priorityQueue.offer(node10);
 		priorityQueue.offer(node11);
 
-		System.out.println("===================================== Ordered data =====================================");
-
+		log.info("===================================== Ordered data =====================================");
+		
 		while (!priorityQueue.isEmpty()) {
 			Node node = priorityQueue.poll();
-			System.out
-					.println("localDateTime : [" + node.getLocalDateTime().toString() + "]\t" + "localDate : "
-							+ node.getLocalDate().toString() + "\t" + "data : " + node.getData());
+			log.info("localDateTime : [ {} ]  - localDate : {}  /  data : {}",
+						node.getLocalDateTime().toString(), node.getLocalDate().toString(), node.getData());
 		}
 	}
 
