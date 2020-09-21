@@ -30,15 +30,21 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import com.springboot.demo.event.QueueingEvent;
 
 //remove pom dependecy or autoconfiguration
-@SpringBootApplication(exclude = { SecurityAutoConfiguration.class, HibernateJpaAutoConfiguration.class,
-		RedisAutoConfiguration.class, DataSourceAutoConfiguration.class,
-		DataSourceTransactionManagerAutoConfiguration.class, SecurityFilterAutoConfiguration.class,
-		XADataSourceAutoConfiguration.class, QuartzAutoConfiguration.class, HazelcastAutoConfiguration.class,
-		SessionAutoConfiguration.class, JtaAutoConfiguration.class, ErrorMvcAutoConfiguration.class })
+@SpringBootApplication(exclude = { SecurityAutoConfiguration.class, 
+		HibernateJpaAutoConfiguration.class,
+		RedisAutoConfiguration.class, 
+		DataSourceAutoConfiguration.class,
+		DataSourceTransactionManagerAutoConfiguration.class, 
+		SecurityFilterAutoConfiguration.class,
+		XADataSourceAutoConfiguration.class, 
+		QuartzAutoConfiguration.class, 
+		HazelcastAutoConfiguration.class,
+		SessionAutoConfiguration.class, 
+		JtaAutoConfiguration.class, 
+		ErrorMvcAutoConfiguration.class })
 @EnableAsync
 //public class SpringbootDemoApplication extends SpringBootServletInitializer{
-public class SpringbootDemoApplication extends SpringBootServletInitializer
-		implements CommandLineRunner, ApplicationRunner {
+public class SpringbootDemoApplication extends SpringBootServletInitializer implements CommandLineRunner, ApplicationRunner {
 
 	private static Logger logger = LoggerFactory.getLogger(SpringbootDemoApplication.class);
 
@@ -52,7 +58,7 @@ public class SpringbootDemoApplication extends SpringBootServletInitializer
 					// ApplicationEvent Listener.(ObserverPattern)
 					@Override
 					public void onApplicationEvent(ApplicationEvent event) {
-						logger.info("[fwk-Listener-ApplicationEvent] {}", event.getClass().getCanonicalName());
+						//logger.info("[fwk-Listener-ApplicationEvent] {}", event.getClass().getCanonicalName());
 					}
 				}).listeners(new ApplicationListener<ApplicationStartedEvent>() {
 					// ApplicationStartedEvent Listener
