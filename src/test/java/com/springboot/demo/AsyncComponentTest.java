@@ -31,7 +31,6 @@ class AsyncComponentTest {
     @Test
     public void allOf_test(){
 
-        Integer expectedPrice = 1100 + 1300 + 900;
 
         CompletableFuture<String> futureA = asyncComponent.asyncCall("latte");
         CompletableFuture<String> futureB = asyncComponent.asyncCall("mocha");
@@ -46,8 +45,6 @@ class AsyncComponentTest {
         		.join();
         log.info("result : {}", resultPrice);
         
-
-        //assertEquals(expectedPrice, resultPrice);
 
     }
 }
