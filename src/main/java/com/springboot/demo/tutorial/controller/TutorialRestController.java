@@ -96,4 +96,7 @@ public class TutorialRestController {
 		//eventQueue.ifItsFullDo("PRINT");
 		eventQueue.ifItsFullDo(COMMAND.PRINT.getCommand());
 	}
+	
+	
+	
 }
